@@ -73,3 +73,12 @@ app.get("/api/tables/:table", function(req, res) {
     return res.json(false);
   });
  
+  app.post("/api/tables",function(req,res) {
+    const newTable = req.body;
+    if (tables.length < 5) {
+        tables.push(newTable);
+    } else {
+        waiting.push(newTable);
+    }
+    res.json(tables);
+});
