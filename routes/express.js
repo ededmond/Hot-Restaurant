@@ -28,3 +28,25 @@ app.listen(PORT, function() {
 app.get("/api/tables", function(req, res) {
     return res.json(tables);
   });
+
+// Displays reserved tables
+app.get("/api/tables", function(req, res) {
+    return res.json(tables);
+  });
+
+// Displays a single table, or returns false
+app.get("/api/tables/:table", function(req, res) {
+    const reservedTable = req.params.table;
+  
+    console.log(reservedTable);
+  
+    for (let i = 0; i < tables.length; i++) {
+      if (reservedTable === tables[i].pathName) {
+        return res.json(tables[i]);
+      }
+    }
+  
+    return res.json(false);
+  });
+  
+  
