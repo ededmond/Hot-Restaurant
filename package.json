@@ -1,0 +1,19 @@
+{
+  "name": "hot-restaurant",
+  "version": "1.0.0",
+  "description": "restaurant practice",
+  "main": "routes/express.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ededmond/Hot-Restaurant.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ededmond/Hot-Restaurant/issues"
+  },
+  "homepage": "https://github.com/ededmond/Hot-Restaurant#readme"
+}
