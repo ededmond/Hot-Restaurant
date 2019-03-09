@@ -73,16 +73,21 @@
         event.preventDefault();
         const newTable = {
           name: $("#name").val().trim(),
-          role: $("#phone-number").val().trim(),
-          age: $("#email").val().trim(),
-          forcePoints: $("#unique-id").val().trim()
+          phoneNumber: $("#phone-number").val().trim(),
+          email: $("#email").val().trim(),
+          uniqueID: $("#unique-id").val().trim()
         };
   
         $.post("/api/tables", newTable)
           .then(function(data) {
             console.log("reserve.html", data);
-            alert("Adding table...");
-            document.location.href = "/";
+            alert("Adding reservation...");
+//clear form
+        
+          $("#name").val("");
+          $("#phone-number").val("");
+          $("#email").val("");
+          $("#unique-id").val("");
           });
       });
 </script>
