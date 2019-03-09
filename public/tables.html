@@ -75,9 +75,9 @@
         listItem.append(
           $("<h2>").text("Table #" + (i+1)),
           $("<h2>"),
-          $("<h2>").text("ID: " + tableData[i].unique-id),
+          $("<h2>").text("ID: " + tableData[i].uniqueID),
           $("<h2>").text("Name: " + tableData[i].name),
-          $("<h2>").text("Phone Number: " + tableData[i].phone-number),
+          $("<h2>").text("Phone Number: " + tableData[i].phoneNumber),
           $("<h2>").text("Email: " + tableData[i].email)
           );
 
@@ -110,10 +110,10 @@ $.ajax({ url: "/api/waitlist", method: "GET" })
       listItem.append(
         $("<h2>").text("Table #" + (i + 1)),
         $("<hr>"),
-        $("<h2>").text("ID: " + waitData[i].unique-id),
+        $("<h2>").text("ID: " + waitData[i].uniqueID),
         $("<h2>").text("Name: " + waitData[i].name),
         $("<h2>").text("Email: " + waitData[i].email),
-        $("<h2>").text("Phone: " + waitData[i].phone-number)
+        $("<h2>").text("Phone: " + waitData[i].phoneNumber)
       );
 
       waitList.append(listItem);
