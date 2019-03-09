@@ -13,18 +13,44 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 tables.push({name: "bob", 'phone-number': "9999",  email: "ew@dfs"})
+waiting.push({ name: "Sue", 'phone-number': "123123123", email: "suesemail@dfs" })
 
-app.get('/', function(req, res) {
-    console.log(__dirname);
-    let pathName = path.join(__dirname,"../public/home.html");
-    console.log(pathName);
+app.get('/:thisRoute', function(req, res) {
+    const page = path.join(__dirname, req.params.thisRoute);
+    console.log(page);
+    // let pathName = path.join(__dirname,"../public/home.html");
+    // console.log(pathName);
+    switch (thisRoute) {
+        case "home.html":
+            break;
+        case "reserve.html":
+            break;
+        case "tables.html":
+            break;
+        default:
+            console.log(thisRoute + " not found")
+    }
+
+
     res.sendFile(path.join(__dirname,"../public/home.html"));
 });
+
+
+app.get('/:myRoute', function (req, res) {
+    const page = req.params.myRoute;
+    // res.sendFile(path.join(__dirname, page + '.html'));
+    console.log("you hit " + page);
+});
+
 
 app.listen(PORT, function() {
     console.log("server is linstening on http://localhost" + PORT);
 });
 
-app.get("/api/tables", function(req, res) {
+app.get("/api/tables", function (req, res) {
     return res.json(tables);
-  });
+});
+
+app.get("/api/waiting", function (req, res) {
+    return res.json(waiting);
+});
