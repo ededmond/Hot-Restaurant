@@ -4,7 +4,9 @@
   "description": "restaurant practice",
   "main": "routes/express.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node routes/express.js",
+    "watch": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,7 @@
   "homepage": "https://github.com/ededmond/Hot-Restaurant#readme",
   "dependencies": {
     "express": "^4.16.4",
+    "heroku": "^7.22.4",
     "inquirer": "^6.2.2",
     "path": "^0.12.7"
   }
