@@ -2,7 +2,7 @@
 
 const express = require('express');
 const path = require("path");
-const PORT = 8080;
+const PORT = process.env.PORT;
 
 const tables = [];
 const waiting = [];
@@ -38,7 +38,7 @@ app.get('/:thisRoute', function(req, res) {
 
 app.get('/:myRoute', function (req, res) {
     const page = req.params.myRoute;
-    // res.sendFile(path.join(__dirname, page + '.html'));
+    res.sendFile(path.join(__dirname, page + '.html'));
     console.log("you hit " + page);
 });
 
@@ -47,10 +47,27 @@ app.listen(PORT, function() {
     console.log("server is linstening on http://localhost" + PORT);
 });
 
-app.get("/api/tables", function (req, res) {
-    return res.json(tables);
-});
-
 app.get("/api/waiting", function (req, res) {
     return res.json(waiting);
 });
+
+// Displays reserved tables
+app.get("/api/tables", function(req, res) {
+    return res.json(tables);
+  });
+
+// Displays a single table, or returns false
+app.get("/api/tables/:table", function(req, res) {
+    const reservedTable = req.params.table;
+  
+    console.log(reservedTable);
+  
+    for (let i = 0; i < tables.length; i++) {
+      if (reservedTable === tables[i].pathName) {
+        return res.json(tables[i]);
+      }
+    }
+  
+    return res.json(false);
+  });
+ 
