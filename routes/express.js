@@ -12,8 +12,8 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-tables.push({name: "bob", 'phone-number': "9999",  email: "ew@dfs"})
-waiting.push({ name: "Sue", 'phone-number': "123123123", email: "suesemail@dfs" })
+tables.push({name: "bob", 'phoneNumber': "9999",  email: "ew@dfs", uniqueID:124134325})
+waiting.push({ name: "Sue", 'phoneNumber': "123123123", email: "suesemail@dfs",uniqueID: 13514615 })
 
 app.get('/',function(req,res) {
     res.sendFile(path.join(__dirname,"../public/home.html"));
