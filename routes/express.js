@@ -49,7 +49,7 @@ app.listen(PORT, function() {
     console.log("server is linstening on http://localhost" + PORT);
 });
 
-app.get("/api/waiting", function (req, res) {
+app.get("/api/waitlist", function (req, res) {
     return res.json(waiting);
 });
 
