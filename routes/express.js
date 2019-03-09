@@ -38,4 +38,12 @@ app.get("/api/tables", function(req, res) {
     return res.json(tables);
 });
 
-
+ app.post("/api/tables",function(req,res) {
+    const newTable = req.body;
+    if (tables.length < 5) {
+        tables.push(newTable);
+    } else {
+        waiting.push(newTable);
+    }
+    res.json(tables);
+});
